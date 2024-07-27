@@ -28,14 +28,12 @@ java {
 dependencies {
     implementation(forge.neoForge)
 
-    // Registrate
-    compileOnlyApi("com.tterrag.registrate:Registrate:${forge.versions.registrate.get()}")
-
-    // LDLib
-    compileOnlyApi(forge.ldlib.neoforge)
-
     // Configuration
-    compileOnlyApi(forge.configuration)
+    api(forge.configuration)
+    jarJar(forge.configuration)
+
+    // dglab
+    implementation(forge.dglab) { transitive = false }
 
     // JEI
     jeiCompileOnly(forge.jei.common.api) { transitive = false }
@@ -57,14 +55,8 @@ dependencies {
     // TOP
     topCompileOnlyApi(forge.theoneprobe) { transitive = false }
 
-    // AE2
-    ae2CompileOnlyApi(forge.ae2) { transitive = false }
-
     // KJS
     kjsCompileOnlyApi(forge.kubejs)
-
-    // GTM
-    gtmImplementation(forge.gtm) { transitive = false }
 
     // lombok
     compileOnly 'org.projectlombok:lombok:1.18.30'
